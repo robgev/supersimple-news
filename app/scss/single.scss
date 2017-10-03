@@ -1,0 +1,12 @@
+.single-article-container {
+  height: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px;
+  .header {
+    display: flex;
+  }
+}

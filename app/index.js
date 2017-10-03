@@ -12,7 +12,7 @@ import App from './components/App';
 import SingleArticle from './components/SingleArticle';
 import NotFound from './components/NotFound';
 
-import './scss/base.scss';
+import 'antd/dist/antd.css';
 
 const ApplicationRoot = () => (
   <Provider store={store}>
