@@ -9,6 +9,11 @@ const refreshArticles = (oldList, newList) => {
   return [ ...newArticles, ...oldList ];
 }
 
+const safeAddArticles = (oldList, newList) => {
+  const appendedArticles = differenceBy(newList, oldList, 'id');
+  return [ ...oldList, ...appendedArticles ];
+}
+
 const pinArticle = (articles, pinnedArticle) => {
   const search = articles.find(article => JSON.stringify(article) === JSON.stringify(pinnedArticle));
   if(!search) {
@@ -20,7 +25,7 @@ const pinArticle = (articles, pinnedArticle) => {
 const allArticles = (articles = [], action) => {
 	switch (action.type) {
 		case types.APPEND_NEW_ARTICLES:
-			return [...articles, ...action.payload];
+			return safeAddArticles(articles, action.payload);
     case types.REFRESH_ARTICLES:
       return refreshArticles(articles, action.payload);
 		default:

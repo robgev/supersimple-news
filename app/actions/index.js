@@ -6,7 +6,7 @@ export const incrementPage = () => ({
   type: types.INCREMENT_PAGE,
 })
 
-export const fetchSignleArticle = id => async dispatch => {
+export const fetchSingleArticle = id => async dispatch => {
   const base = 'http://content.guardianapis.com/';
   const queries = '?show-fields=thumbnail&api-key=17cf0813-9269-4b81-9e49-812ff7f29480';
   const promise = await fetch(`${base}${id}${queries}`);

@@ -22,9 +22,8 @@ const loading =
 @connect(mapStateToProps, { fetchArticles, incrementPage, refreshArticles, pinArticle })
 class App extends PureComponent {
   componentWillMount() {
-    const { fetchArticles, incrementPage } = this.props;
-    incrementPage();
-    fetchArticles();
+    const { refreshArticles } = this.props;
+    refreshArticles();
   }
 
   componentDidMount() {

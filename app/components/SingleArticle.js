@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getSingleArticle } from '../data-selectors';
-import { fetchSignleArticle, pinArticle } from '../actions';
+import { fetchSingleArticle, pinArticle } from '../actions';
 
 import '../scss/single.scss';
 
@@ -11,12 +11,12 @@ const mapStateToProps = state => ({
   article: getSingleArticle(state),
 });
 
-@connect(mapStateToProps, { fetchSignleArticle, pinArticle })
+@connect(mapStateToProps, { fetchSingleArticle, pinArticle })
 class SingleArticle extends PureComponent {
   async componentWillMount() {
-    const { fetchSignleArticle, location: {pathname} } = this.props; // Pathname is /artilcle/ID. We need ID
+    const { fetchSingleArticle, location: {pathname} } = this.props; // Pathname is /artilcle/ID. We need ID
     const articleID = pathname.split('/article')[1]; // We split by /article and get array of ["", ID]
-    await fetchSignleArticle(articleID);
+    await fetchSingleArticle(articleID);
   }
 
   pinArticle = () => {
